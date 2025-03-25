@@ -1,0 +1,18 @@
+<p>{{doomScore | async}}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>User</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of scores; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{x[0]}}</td>
+            <td>{{x[1]}}</td>
+        </tr>
+    </tbody>
+</table>

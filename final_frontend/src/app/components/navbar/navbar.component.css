@@ -1,0 +1,79 @@
+/* Style for the nav element */
+nav {
+  width: 100%; /* Ensure it takes up the full width of its container */
+  height: 100%; /* Ensure it takes up the full height of its container */
+  background-color: #333; /* Example background color */
+  color: white; /* Example text color */
+}
+
+/* Container for navbar content */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Space out the left and right sections */
+  align-items: center; /* Center items vertically */
+  height: 100%; /* Take up full height of the navbar */
+  padding: 0 1rem; /* Add some horizontal padding */
+}
+
+/* Style for the unordered list */
+ul {
+  display: flex;
+  list-style: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  gap: 1rem; /* Add space between list items */
+}
+
+/* Style for list items */
+li {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+/* Style for links */
+a {
+  color: white; /* Example text color */
+  text-decoration: none; /* Remove underline */
+  padding: 0.5rem 1rem; /* Add padding for better clickability */
+  border-radius: 4px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Active link style */
+a.active {
+  background-color: #555; /* Highlight the active link */
+  font-weight: bold; /* Make the active link bold */
+}
+
+/* Hover effect for links */
+a:hover {
+  background-color: #777; /* Change background color on hover */
+}
+
+/* Style for the user section */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Add space between items */
+}
+
+/* Style for the username */
+.username {
+  font-weight: bold; /* Make the username bold */
+}
+
+/* Style for buttons */
+button {
+  background-color: #555; /* Example button background color */
+  color: white; /* Example button text color */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: #777; /* Change background color on hover */
+}

@@ -1,0 +1,28 @@
+<h2>Add topics of Interest</h2>
+
+<form [formGroup]="form" (submit)="processForm()" >
+    <table>
+        <tr>
+            <th>Topics</th>
+        </tr>
+        <tr *ngFor="let topic of this.topicList">
+            <td>{{topic.webTitle}}</td>
+            <td>
+                <input type="checkbox" [value]="topic.id" [checked]="this.userCurrPref.has(topic.id) "  (change)="checkboxChange($event)">
+            </td>
+        </tr>
+        <br>
+        <button type="submit" >Update Preferences</button>
+    </table>
+    
+</form>
+
+<!-- <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="generateItems()">
+    <div *ngFor="let item of this.items ; let i = index">
+        <h1 aria-setsize="200">{{item}}</h1>
+
+    </div>
+
+</div> -->
+
+

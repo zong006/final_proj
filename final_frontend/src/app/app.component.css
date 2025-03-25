@@ -1,0 +1,46 @@
+/* Ensure the app container takes the full height of the viewport */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Fixed Navbar */
+.navbar {
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 60px; /* Fixed height */
+  background-color: #333; /* Example background color */
+  color: white; /* Example text color */
+  z-index: 1000; /* Ensure navbar is above all other elements */
+}
+
+/* Main Layout */
+.main-layout {
+  display: flex;
+  flex: 1; /* Take up remaining space */
+  margin-top: 60px; /* Offset for the fixed navbar */
+}
+
+/* Scrollable Content */
+.content {
+  flex: 1; /* Take up remaining space */
+  padding: 1rem; /* Add some padding */
+  overflow-y: auto; /* Enable scrolling */
+  margin-right: 25%; /* Offset for the fixed sidebar */
+}
+
+/* Fixed Sidebar */
+.sidebar {
+  position: fixed; /* Fix the sidebar */
+  top: 60px; /* Offset for the fixed navbar */
+  right: 0; /* Align to the right */
+  width: 25%; /* Sidebar takes 25% of the width */
+  height: calc(100vh - 60px); /* Full height minus navbar height */
+  background-color: #f4f4f4; /* Example background color */
+  padding: 16px; /* Add some padding */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  z-index: 999; /* Ensure sidebar is below the navbar */
+}

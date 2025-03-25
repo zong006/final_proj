@@ -1,0 +1,12 @@
+
+<img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 20vw; height: auto;">
+<br>
+<p>Score</p>
+<p>{{delta | async}}</p>
+<br>
+<div *ngIf="qrCodeUrl">
+    <img [src]="qrCodeUrl" alt="Scan QR to join Telegram" />
+  </div>
+  <p *ngIf="!qrCodeUrl">Loading QR Code...</p>
+
+

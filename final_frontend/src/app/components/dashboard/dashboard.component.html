@@ -1,0 +1,15 @@
+
+<button (click)="getFeed(this.user)">test</button>
+
+<div class="article-container" infinite-scroll [infiniteScrollDistance]="3" (scrolled)="onScroll()">
+    <div *ngFor="let article of articles$ | async" class="article-card" (click)="openArticle(article.url)">
+      <div class="image-container">
+        <img [src]="article.imageUrl" alt="{{ article.title }}" class="article-image">
+      </div>
+      <div class="content-container">
+        <h3 class="article-title">{{ article.title }}</h3>
+        <p class="article-section">{{ article.section }}</p>
+        <p class="article-date">{{ article.date | date: 'mediumDate' }}</p>
+      </div>
+    </div>
+</div>

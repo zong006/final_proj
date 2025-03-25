@@ -1,0 +1,25 @@
+
+FROM --platform=linux/amd64 maven:3.9.9-eclipse-temurin-23 AS build
+
+
+WORKDIR /app
+
+
+COPY pom.xml .
+COPY .mvn .mvn
+COPY mvnw .
+COPY src src
+# COPY src/main/resources/*.json src/main/resources
+
+RUN mvn clean install -DskipTests
+
+
+FROM --platform=linux/amd64 eclipse-temurin:23-jre
+
+COPY --from=build /app/target/final_backend-0.0.1-SNAPSHOT.jar /app.jar
+COPY --from=build /app/src/main/resources /src/main/resources
+
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "/app.jar"]
