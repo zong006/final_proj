@@ -18,7 +18,7 @@ public class FirebaseConfig {
     @PostConstruct
     public void initializeSDK() throws IOException{
         InputStream is = getClass().getClassLoader().getResourceAsStream("vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
-        FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
+        // FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
         FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(is)).build();
         FirebaseApp.initializeApp(options);
     }
