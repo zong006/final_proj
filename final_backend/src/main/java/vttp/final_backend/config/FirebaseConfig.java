@@ -17,8 +17,10 @@ public class FirebaseConfig {
     
     @PostConstruct
     public void initializeSDK() throws IOException{
-        FileInputStream fis = new FileInputStream("/app/config/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
-        // FileInputStream fis = new FileInputStream("src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
+        String workingDir = System.getProperty("user.dir");
+        System.out.println(">>>> workingdir: " + workingDir);
+        FileInputStream fis = new FileInputStream("./config/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
+        // FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
         FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(fis)).build();
         FirebaseApp.initializeApp(options);
     }
