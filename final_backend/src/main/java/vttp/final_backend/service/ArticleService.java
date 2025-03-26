@@ -63,7 +63,14 @@ public class ArticleService {
     public List<Article> collateArticles(String userID, String page) throws IOException, ParseException{
         List<String> selectedTopics = getUserPref(userID);
         List<Article> collatedArticles = new LinkedList<>();
-        String pageSize = Integer.toString(Utils.articlesPerLoad / selectedTopics.size());
+        String pageSize;
+        if (selectedTopics.size()>0){
+            pageSize = Integer.toString(Utils.articlesPerLoad / selectedTopics.size());
+        }
+        else{
+            pageSize = Integer.toString(Utils.articlesPerLoad);
+        }
+        
         
         if (selectedTopics.size()>0 && !selectedTopics.get(0).equals("")){
             System.out.println("not empty");

@@ -71,8 +71,9 @@ public class UserController {
     private SendEmailService emailService;
     @GetMapping("/send-email")
     public String sendEmail() {
-        emailService.sendEmail("recipient@example.com", "Test Subject", "This is a test email.");
-        return "Email sent successfully!";
+        String response = emailService.sendEmail("ongzhicong@gmail.com", "Test Subject", "This is a test email.");
+        
+        return response.equals("Success")? "Email sent successfully!" : "failed";
     }
 
 }

@@ -1,6 +1,9 @@
 package vttp.final_backend.service;
 
+import java.util.Properties;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -9,15 +12,26 @@ import org.springframework.stereotype.Service;
 public class SendEmailService{
     
     @Autowired
-    private JavaMailSender javaMailSender;
+    private JavaMailSender mailSender;    
 
-    public void sendEmail(String to, String subject, String text){
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("your-email@gmail.com");  // Your email
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
+    
 
-        javaMailSender.send(message);
+    public String sendEmail(String recepient, String emailSubject, String emailBody){
+        
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom("doomscrollerr0@gmail.com");
+            message.setTo(recepient);
+            message.setSubject(emailSubject);
+            message.setText(emailBody);
+
+            mailSender.send(message);
+
+            return "Success";
+        } catch (MailException e) {
+            
+            return e.getMessage();
+        }
     }
 }
+

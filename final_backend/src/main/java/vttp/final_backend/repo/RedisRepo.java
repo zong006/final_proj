@@ -3,6 +3,7 @@ package vttp.final_backend.repo;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +46,8 @@ public class RedisRepo {
 
     public List<String> getPrefFromHash(String userId){
         String value = (String) redisTemplate.opsForHash().get(REDIS_HASH_USER_PREF, userId);
-        return Arrays.asList(value.split(Utils.delimiter));
+        
+        return (value!=null)? Arrays.asList(value.split(Utils.delimiter)) : Collections.emptyList();
     }
 
     public boolean PrefHashHasKey(String userId){
