@@ -29,7 +29,7 @@ COPY final_backend/.mvn .mvn
 COPY final_backend/mvnw .
 COPY final_backend/src src
 
-COPY --from=ngbuild /client/dist/final_frontend/browser src/main/resources/static
+COPY --from=ngbuild /final_frontend/dist/final_frontend/browser src/main/resources/static
 
 RUN chmod a+x mvnw
 RUN ./mvnw package -Dmaven.test.skip=true
