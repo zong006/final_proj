@@ -1,69 +1,108 @@
-/* Topics Preference Form Styling */
 .topics-preference-form {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80vw;
+  /* margin: 2rem 10vw; */
+  padding: 1rem;
+  background: rgba(40, 40, 40, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-height: 80vh;
+  overflow-y: auto;
+  
+}
+
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.topics-preference-form h2 {
+  color: #ffffff;
+  margin: 0; /* Remove previous margin */
+  font-size: 1.8rem;
+  text-align: left; /* Changed from center */
+  border-bottom: 2px solid rgba(206, 11, 11, 0.7);
+  padding-bottom: 0.75rem;
+  width: fit-content;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+
+
+.topics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.topic-item {
+  background: rgba(60, 60, 60, 0.9);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topic-item:hover {
+  background: rgba(80, 80, 80, 0.9);
+  transform: translateY(-2px);
+}
+
+.topic-title {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: center;
+  justify-content: center;
+}
+
+
+.topic-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  accent-color: #ce0b0b;
+  cursor: pointer;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+
+
+.submit-btn {
+  background: #ce0b0b;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.5rem; 
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  white-space: nowrap; 
+}
+
+.submit-btn:hover {
+  background: #a50909;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 768px) {
+  .topics-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    /* grid-template-columns: repeat(3, 1fr); */
   }
   
   .topics-preference-form h2 {
-    color: #f0f0f0;
-    margin-bottom: 1.5rem;
     font-size: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 0.5rem;
   }
-  
-  .topics-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .topic-item {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-  
-  .topic-item:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-  
-  .topic-label {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-  }
-  
-  .topic-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-right: 12px;
-    accent-color: #ce0b0b; /* Modern checkbox color */
-    cursor: pointer;
-  }
-  
-  .topic-title {
-    color: #e0e0e0;
-    font-size: 1rem;
-  }
-  
-  .submit-btn {
-    background: #353637;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  .submit-btn:hover {
-    background: #030e20;
-  }
+}

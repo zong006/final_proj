@@ -1,14 +1,34 @@
 
-<img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 20vw; height: auto;">
+<img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 200px; height: auto;">
 <br>
-<p>Score</p>
-<p>{{delta | async}}</p>
-<br>
-<div *ngIf="loggedIn | async">
+
+<!-- <div *ngIf="loggedIn | async">
   <div *ngIf="qrCodeUrl">
-    <img [src]="qrCodeUrl" alt="Scan QR to join Telegram" />
+    <h4>Scan the QR code below to subscribe on Telegram</h4>
+    <img [src]="qrCodeUrl" alt="Scan QR to join Telegram" width="150px" height="150px"/>
   </div>
   <p *ngIf="!qrCodeUrl">Loading QR Code...</p>
+</div> -->
+
+<div *ngIf="loggedIn | async" class="qr-container">
+  <div *ngIf="qrCodeUrl" class="qr-card">
+    <h4 class="qr-title">Scan the QR code below to subscribe on Telegram</h4>
+    <div class="qr-code-wrapper">
+      <img [src]="qrCodeUrl" alt="Telegram QR Code" class="qr-image"/>
+      <div class="qr-hover-effect"></div>
+    </div> 
+  </div>
+  <p *ngIf="!qrCodeUrl" >
+    Generating QR Code...
+  </p>
+</div>
+
+<br>
+<div *ngIf="died | async">
+  <!-- some image to use , maybe pixel cat-->
+  <img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 100; height: 100px;">
+  <button (click)="toCalm('trees')" >Trees</button>
+  <button (click)="toCalm('ocean')">Ocean</button>
 
 </div>
   

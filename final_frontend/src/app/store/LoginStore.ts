@@ -6,7 +6,8 @@ export interface LoginState{
     loggedIn : boolean;
     user : User;
     dooomScrollScore : number;
-    delta : number
+    delta : number;
+    died : boolean;
 }
 
 @Injectable({
@@ -23,7 +24,8 @@ export class LoginStore  extends ComponentStore<LoginState>{
                 selectedTopics : []
             },
             dooomScrollScore : 0,
-            delta :0
+            delta :0,
+            died : false
         });
     }
 
@@ -31,6 +33,7 @@ export class LoginStore  extends ComponentStore<LoginState>{
     readonly user$ = this.select(currState => currState.user);
     readonly doomScrollScore$ = this.select(currState => currState.dooomScrollScore);
     readonly delta$ = this.select(currState => currState.delta);
+    readonly died$ = this.select(currState => currState.died);
 
     //============================================================================== // 
 
@@ -40,7 +43,8 @@ export class LoginStore  extends ComponentStore<LoginState>{
                 loggedIn : currState.loggedIn,
                 user : user,
                 dooomScrollScore : currState.dooomScrollScore,
-                delta : currState.delta
+                delta : currState.delta,
+                died : currState.died
             }
             return newState;
         }
@@ -53,7 +57,8 @@ export class LoginStore  extends ComponentStore<LoginState>{
                 loggedIn : newLoggedInStatus,
                 user : currState.user,
                 dooomScrollScore : currState.dooomScrollScore,
-                delta : currState.delta
+                delta : currState.delta,
+                died : currState.died
             }
             return newState;
         }
@@ -65,7 +70,8 @@ export class LoginStore  extends ComponentStore<LoginState>{
                 loggedIn : currState.loggedIn,
                 user : currState.user,
                 dooomScrollScore : currState.dooomScrollScore + toIncr,
-                delta : currState.delta + toIncr
+                delta : currState.delta + toIncr,
+                died : currState.died
             }
             return newState;
         }
@@ -77,7 +83,8 @@ export class LoginStore  extends ComponentStore<LoginState>{
                 loggedIn : currState.loggedIn,
                 user : currState.user,
                 dooomScrollScore : score,
-                delta : currState.delta
+                delta : currState.delta,
+                died : currState.died
             }
             return newState;
         }
@@ -89,7 +96,21 @@ export class LoginStore  extends ComponentStore<LoginState>{
                 loggedIn : currState.loggedIn,
                 user : currState.user,
                 dooomScrollScore : currState.dooomScrollScore,
-                delta : zero
+                delta : zero,
+                died : currState.died
+            }
+            return newState;
+        }
+    )
+
+    readonly setDied$ = this.updater<boolean>(
+        (currState : LoginState, deadOrAlive : boolean) => {
+            const newState : LoginState = {
+                loggedIn : currState.loggedIn,
+                user : currState.user,
+                dooomScrollScore : currState.dooomScrollScore,
+                delta : currState.delta,
+                died : deadOrAlive
             }
             return newState;
         }

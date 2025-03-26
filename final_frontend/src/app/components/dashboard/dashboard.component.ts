@@ -59,6 +59,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
 
   isLoading$ = this.articleStore.isLoading$;
   currPage$ = this.articleStore.currPage$;
+  delta = this.loginStore.delta$
 
   user : User = {
     id : '',
@@ -90,10 +91,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
 
   onScroll(){
     // console.info('>>> scrolled to page: ', this.currPage);
-    this.loginStore.incrDoomScrollStoreDelta$(10);
+     this.loginStore.incrDoomScrollStoreDelta$(10);
    
-    
-    this.getFeed(this.user);
+     this.getFeed(this.user);
   }
 
 

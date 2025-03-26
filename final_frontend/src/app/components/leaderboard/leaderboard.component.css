@@ -1,3 +1,25 @@
+
+tr:nth-child(1):not(thead tr),
+tr:nth-child(2):not(thead tr), 
+tr:nth-child(3):not(thead tr) {
+    
+  tr:nth-child(1) {
+    background-color: rgba(255, 215, 0, 0.15) !important; 
+    border-left: 3px solid rgba(255, 215, 0, 0.7);
+  }
+  
+  tr:nth-child(2) {
+    background-color: rgba(192, 192, 192, 0.15) !important; 
+    border-left: 3px solid rgba(192, 192, 192, 0.7);
+  }
+  
+  tr:nth-child(3) {
+    background-color: rgba(205, 127, 50, 0.15) !important; 
+    border-left: 3px solid rgba(205, 127, 50, 0.7);
+  }
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -6,39 +28,70 @@ table {
     background-color: rgba(40, 40, 40, 0.7);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(80, 80, 80, 0.5);
-  }
-  
-  thead {
+    margin-right: 25%;
+    max-width: calc(100% - 25%);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+tbody tr:nth-child(1) {
+    background-color: rgba(255, 215, 0, 0.15) !important;
+    border-left: 3px solid rgba(255, 215, 0, 0.7);
+}
+tbody tr:nth-child(2) {
+    background-color: rgba(192, 192, 192, 0.15) !important;
+    border-left: 3px solid rgba(192, 192, 192, 0.7);
+}
+tbody tr:nth-child(3) {
+    background-color: rgba(205, 127, 50, 0.15) !important;
+    border-left: 3px solid rgba(205, 127, 50, 0.7);
+}
+
+
+tbody tr:nth-child(1) td:first-child::before {
+    content: "🥇 ";
+}
+tbody tr:nth-child(2) td:first-child::before {
+    content: "🥈 ";
+}
+tbody tr:nth-child(3) td:first-child::before {
+    content: "🥉 ";
+}
+
+
+thead {
     background-color: rgba(30, 30, 30, 0.8);
     border-bottom: 2px solid rgba(90, 90, 90, 0.5);
-  }
-  
-  th {
+}
+th {
     padding: 12px 15px;
     text-align: left;
     font-weight: 600;
     color: rgba(180, 180, 180, 0.9);
     letter-spacing: 0.5px;
-  }
-  
-  td {
+}
+
+
+td {
     padding: 10px 15px;
     border-bottom: 1px solid rgba(70, 70, 70, 0.4);
-  }
-  
-  tr:nth-child(even) {
+}
+
+
+tbody tr:nth-child(even):not(:nth-child(-n+3)) {
     background-color: rgba(50, 50, 50, 0.5);
-  }
-  
-  tr:hover {
+}
+
+
+tbody tr:hover:not(:nth-child(-n+3)) {
     background-color: rgba(60, 60, 60, 0.6);
-  }
-  
-  /* Specific column styling */
-  td:first-child {
+}
+
+
+td:first-child {
     color: rgba(160, 160, 160, 0.9);
-  }
-  
-  td:nth-child(3) {
+}
+td:nth-child(3) {
     font-weight: 500;
-  }
+}

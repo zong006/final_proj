@@ -29,7 +29,8 @@
   flex: 1; 
   padding: 1rem; 
   overflow-y: auto; 
-  margin-right: 25%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 
@@ -37,9 +38,9 @@
   position: fixed; 
   top: 60px;
   right: 0; 
-  width: 25%; 
+  width: 15%; 
   height: calc(100vh - 60px);
-  background-color: #f4f4f4; 
+  background-color: (0,0,0,0.1 ); 
   padding: 16px; 
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   z-index: 999; 
@@ -51,7 +52,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: contain;
+  background-size: cover;
   background-position: left top;
   background-repeat: no-repeat;
   background-attachment: fixed; /* This makes the background static */

@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { CalmComponent } from './components/calm/calm.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
     NavbarComponent,
     UserSettingsComponent,
     SidebarComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    CalmComponent
   ],
   imports: [
     BrowserModule,
