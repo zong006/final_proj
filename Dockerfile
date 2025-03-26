@@ -55,7 +55,7 @@
 # build angular app
 FROM node:22 AS ngbuild
 
-WORKDIR /client
+WORKDIR /final_frontend
 
 # install angular cli
 RUN npm i -g @angular/cli@19.2.1
@@ -75,7 +75,7 @@ RUN ng build
 # Stage 2 - build spring boot
 FROM openjdk:23 AS javabuild
 
-WORKDIR /server
+WORKDIR /final_backend
 
 COPY final_backend/pom.xml .
 COPY final_backend/.mvn .mvn
@@ -92,7 +92,7 @@ FROM openjdk:23
 
 WORKDIR /app
 
-COPY --from=javabuild /server/target/*.jar app.jar
+COPY --from=javabuild /final_backend/target/*.jar app.jar
 
 ENV PORT=8080
 
