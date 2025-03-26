@@ -8,7 +8,7 @@ import { Article } from '../../model/Article';
 })
 export class DashboardService {
 
-  private rootUrl = 'http://localhost:8080';
+  private rootUrl = 'finalproj-production-3955.up.railway.app';
 
   constructor(private httpClient : HttpClient){ }
 
@@ -17,8 +17,8 @@ export class DashboardService {
     let idToken = sessionStorage.getItem('idToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer${idToken}`);
 
-    // const feedUrl = this.rootUrl + `/articles/feed/${user.id}?page=${page}`
-    const feedUrl = `/api/articles/feed/${user.id}?page=${page}`
+    const feedUrl = this.rootUrl + `/articles/feed/${user.id}?page=${page}`
+    // const feedUrl = `/api/articles/feed/${user.id}?page=${page}`
     console.info('>>> feedUrl: ', feedUrl)
 
     return this.httpClient.get<Article[]>(feedUrl, {headers : headers});

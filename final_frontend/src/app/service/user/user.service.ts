@@ -10,11 +10,11 @@ export class UserService {
 
   constructor(private httpClient : HttpClient) { }
 
-  // private rootUrl = 'http://localhost:8080';
+  private rootUrl = 'finalproj-production-3955.up.railway.app';
 
   loginUser(user : User) : Observable<User>{
-    // const loginUrl = this.rootUrl + '/user/login'; // <-- set to environment variables
-    const loginUrl =  '/api/user/login'; // <-- set to environment variables
+    const loginUrl = this.rootUrl + '/user/login'; // <-- set to environment variables
+    // const loginUrl =  '/api/user/login'; // <-- set to environment variables
     console.info('>>> url: ',loginUrl);
     console.info('>>> user: ', user);
     
@@ -31,8 +31,8 @@ export class UserService {
   }
 
   updateUserPref(user : User){
-    // const updatePrefUrl = this.rootUrl + `/user/update/${user.id}`
-    const updatePrefUrl =  `/api/user/update/${user.id}`
+    const updatePrefUrl = this.rootUrl + `/user/update/${user.id}`
+    // const updatePrefUrl =  `/api/user/update/${user.id}`
     console.info('>>> url to put: ', updatePrefUrl);
     this.httpClient.put<User>(updatePrefUrl, user).subscribe(
       (response) => {
