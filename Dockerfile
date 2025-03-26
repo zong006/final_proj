@@ -97,11 +97,11 @@
     
     WORKDIR ${DEPLOY_DIR}
     
-    COPY --from=compiler /code_folder/target/movies-0.0.1-SNAPSHOT.jar movies.jar
+    COPY --from=compiler /code_folder/target/final_backend-0.0.1-SNAPSHOT.jar app.jar
     
 
     
-    ENTRYPOINT java -jar movies.jar
+    ENTRYPOINT java -jar app.jar
         
     # ---------------------------- STAGE 2 ----------------------------
     
