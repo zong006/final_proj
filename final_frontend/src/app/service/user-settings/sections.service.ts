@@ -14,7 +14,7 @@ export class SectionsService {
 
   getSections(){
     // return lastValueFrom(this.httpClient.get<Section[]>(this.sectionsURL + '/articles/sections'));
-    return lastValueFrom(this.httpClient.get<Section[]>('/api/articles/sections'));
+    return lastValueFrom(this.httpClient.get<Section[]>(this.sectionsURL + '/api/articles/sections'));
     // .subscribe(
     //   (response) => {
     //     console.info('>>> sections: ', response);

@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginStore } from '../../store/LoginStore';
 
 @Component({
@@ -25,4 +25,10 @@ export class CalmComponent implements OnInit, OnDestroy{
   private loginStore = inject(LoginStore);
   img = '';
   imgPath = '';
+  private router = inject(Router);
+
+
+  goToFeed(){
+    this.router.navigate(['dashboard'])
+  }
 }
