@@ -10,7 +10,7 @@ export class LeaderboardService {
 
   private http = inject(HttpClient);
 
-  private url = 'finalproj-production-3955.up.railway.app'
+  private url = 'https://finalproj-production-3955.up.railway.app'
 
   getLeaderBoard(){
     return lastValueFrom(this.http.get<Map<string, number>>(this.url + '/api/leaderboard/get'))

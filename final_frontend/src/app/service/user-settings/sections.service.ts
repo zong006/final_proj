@@ -10,7 +10,7 @@ export class SectionsService {
 
   constructor(private httpClient : HttpClient) { }
 
-  private sectionsURL = "http://localhost:8080";
+  private sectionsURL = "https://finalproj-production-3955.up.railway.app";
 
   getSections(){
     // return lastValueFrom(this.httpClient.get<Section[]>(this.sectionsURL + '/articles/sections'));

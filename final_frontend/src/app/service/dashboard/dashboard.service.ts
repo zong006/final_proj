@@ -8,7 +8,7 @@ import { Article } from '../../model/Article';
 })
 export class DashboardService {
 
-  private rootUrl = 'finalproj-production-3955.up.railway.app';
+  private rootUrl = 'https://finalproj-production-3955.up.railway.app';
 
   constructor(private httpClient : HttpClient){ }
 
@@ -17,7 +17,7 @@ export class DashboardService {
     let idToken = sessionStorage.getItem('idToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer${idToken}`);
 
-    const feedUrl = this.rootUrl + `/articles/feed/${user.id}?page=${page}`
+    const feedUrl = this.rootUrl + `/api/articles/feed/${user.id}?page=${page}`
     // const feedUrl = `/api/articles/feed/${user.id}?page=${page}`
     console.info('>>> feedUrl: ', feedUrl)
 
@@ -26,7 +26,7 @@ export class DashboardService {
 
   getQrCode(user : User){
     // const qrUrl = this.rootUrl + `/qr/generate/${user.id}`
-    const qrUrl =  `/api/qr/generate/${user.id}`
+    const qrUrl = this.rootUrl +  `/api/qr/generate/${user.id}`
 
     console.info('>>> QR code Url: ', qrUrl)
     return this.httpClient.get(qrUrl, { responseType: 'blob' })
