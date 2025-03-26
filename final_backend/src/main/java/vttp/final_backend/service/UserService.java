@@ -27,6 +27,9 @@ public class UserService {
     @Autowired
     private RedisRepo redisRepo;
 
+    @Autowired
+    private TelegramService telegramService;
+
 
     public User loginUser(User user, String uid){
         userSqlRepo.loginUser(user, uid);
@@ -82,15 +85,35 @@ public class UserService {
 
 
     // method to run every 24 hours to check if user has logged in within the past 24 hours
+    @Autowired
+    private SendEmailService emailService;
 
     @Scheduled(fixedRate = 86400000) // <-- schedule to run every 24hours to remind users to doomscroll
     public void getListOfInactiveUsers() {
 
         List<String> inactiveEmails = userSqlRepo.getEmailsOfInactiveUsers();
 
-        // send email to users
+        inactiveEmails.forEach(x -> {
+            sendReminderEmail(x);
+            try {
+                sendTelegramReminder(x);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+    }
 
-        // get the telegram chatId corresponding to these emails, and ping them on tele
 
+    private void sendReminderEmail(String reciepient){
+        String emailSubject = "Get Your Doomscrolling Fix";
+        String emailBody = "Seems like you haven't doomscrolled in a while...Time to get your fix :D";
+        emailService.sendEmail(reciepient, emailSubject, emailBody);
+    }
+
+    private void sendTelegramReminder(String email){
+        String userId = redisRepo.getUserIdFromEmail(email);
+        String chatId = redisRepo.getChatIdFromUserId(userId);
+        String teleMsg = "It's been a while since you've doomscrolled...";
+        telegramService.sendMessage(Integer.parseInt(chatId), teleMsg);
     }
 }

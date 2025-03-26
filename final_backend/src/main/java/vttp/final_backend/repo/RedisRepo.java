@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -126,6 +127,33 @@ public class RedisRepo {
     public String getEmailFromUserId(String userId){
         return (String) redisTemplate.opsForHash().get(REDIS_HASH_USERID_EMAIL, userId);
     }
+// ==================================================================================================== //
 
+
+    public String getUserIdFromEmail(String email){
+        Set<Object> userIDs = redisTemplate.opsForHash().keys(REDIS_HASH_USERID_EMAIL);
+
+        for (Object o : userIDs){
+            String userId = (String) o;
+            String e = (String) redisTemplate.opsForHash().get(REDIS_HASH_USERID_EMAIL, userId);
+            if (e.equals(email)){
+                return userId;
+            }
+        }
+        return "";
+    }
+
+    public String getChatIdFromUserId(String userId){
+        Set<Object> chatIDs = redisTemplate.opsForHash().keys(REDIS_HASH_CHATID);
+
+        for (Object o : chatIDs){
+            String chatId = (String) o;
+            String u = (String) redisTemplate.opsForHash().get(REDIS_HASH_CHATID, chatId);
+            if (u.equals(userId)){
+                return chatId;
+            }
+        }
+        return "";
+    }
     
 }

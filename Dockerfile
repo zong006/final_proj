@@ -29,6 +29,7 @@ COPY final_backend/.mvn .mvn
 COPY final_backend/mvnw .
 COPY final_backend/src src
 
+COPY --from=ngbuild /client/dist/final_frontend/browser src/main/resources/static
 
 RUN chmod a+x mvnw
 RUN ./mvnw package -Dmaven.test.skip=true
@@ -39,7 +40,6 @@ FROM openjdk:23
 WORKDIR /app
 
 COPY --from=javabuild /final_backend/target/*.jar app.jar
-COPY final_backend/src/main/resources/*.json /app/config/
 
 ENV PORT=8080
 

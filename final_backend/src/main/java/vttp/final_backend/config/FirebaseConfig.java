@@ -30,8 +30,8 @@ public class FirebaseConfig {
         FirebaseApp.initializeApp(options);
 
         // FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
-        //     options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(fis)).build();
-        //     FirebaseApp.initializeApp(options);
+        // FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(fis)).build();
+        // FirebaseApp.initializeApp(options);
     }
 
 }

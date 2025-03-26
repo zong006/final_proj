@@ -97,7 +97,7 @@ public class TelegramService {
         }
     }
 
-    private void sendMessage(Integer chatId, String text) {
+    public void sendMessage(Integer chatId, String text) {
         String TELEGRAM_API_URL = "https://api.telegram.org/bot" + BOT_TOKEN;
         String url = TELEGRAM_API_URL + "/sendMessage?chat_id=" + chatId + "&text=" + text;
         RestTemplate restTemplate = new RestTemplate();
