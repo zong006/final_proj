@@ -7,6 +7,7 @@ import { Section } from '../../model/Section';
 import { db } from '../../IndexDB/indexDB';
 import { UserService } from '../../service/user/user.service';
 import { Router } from '@angular/router';
+import { ArticleStore } from '../../store/ArticleStore';
 
 @Component({
   selector: 'app-user-settings',
@@ -36,6 +37,7 @@ export class UserSettingsComponent implements OnInit{
   private sectionSvc = inject(SectionsService);
   private userSvc = inject(UserService);
   private router = inject(Router)
+  private articleStore = inject(ArticleStore)
 
   private fb = inject(FormBuilder);
   form !: FormGroup;
@@ -87,7 +89,7 @@ export class UserSettingsComponent implements OnInit{
       }
     );
     console.info('>>>new user selected topics: ', this.user.selectedTopics);
-    
+    this.articleStore.resetCurrPage$(1)
     console.info('>>> values: ', this.user);
     this.userSvc.updateUserPref(this.user);
 

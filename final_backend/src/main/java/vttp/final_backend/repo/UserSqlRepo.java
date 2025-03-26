@@ -77,12 +77,12 @@ public class UserSqlRepo {
         template.update(SQL_UPDATE_USER_ACTIVITY, latestLogin, email);
     }
 
-    public List<String> getEmailsOfInactiveUsers(){
-        String SQL_GET_INACTIVE_EMAILS = """
+    public List<String> getEmailsOfInactiveUsers(){ // <--- change this to INTERVAL 1 DAY. 1 minute is for demo
+        String SQL_GET_INACTIVE_EMAILS = """ 
                 select ud.email
                 from user_activity ua
                 inner join user_details ud on ua.uid = ud.uid
-                where ua.current_login < NOW() - INTERVAL 1 DAY
+                where ua.current_login < NOW() - INTERVAL 1 HOUR
                 ;
                 """;
 

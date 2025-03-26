@@ -47,6 +47,17 @@ export class ArticleStore extends ComponentStore<ArticleState>{
         }
     )
 
+    readonly resetCurrPage$ = this.updater<number>(
+        (currState : ArticleState , zero : number) => {
+            const newState : ArticleState = {
+                isLoading : currState.isLoading,
+                articles : currState.articles,
+                currPage : zero
+            }
+            return newState;
+        }
+    )
+
     readonly incrCurrPage = this.updater<number>(
         (currState : ArticleState , incrPage : number) => {
             const newState : ArticleState = {

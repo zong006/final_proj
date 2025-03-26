@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
   
   ngAfterViewInit(): void {
     this.attachScrollListener();
+    
   }
 
   ngOnDestroy(): void {
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
       (u) => {
         this.user = u
         console.info('>>> userid: ', u.id)
+        this.getFeed(u)
       }
     )
     this.leaderboardService.getScore(this.user).then(

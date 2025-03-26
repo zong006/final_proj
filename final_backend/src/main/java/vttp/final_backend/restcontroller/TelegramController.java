@@ -28,4 +28,4 @@ public class TelegramController {
     }
 }
 
-// https://api.telegram.org/bot7836509893:AAF57TZsyKwkamNQ66IJJGKscXMxGggEXzk/setWebhook?url=https://dae4-119-74-30-128.ngrok-free.app/telegram/webhook
+

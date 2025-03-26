@@ -59,10 +59,10 @@
   
   .cat-overlay:hover {
     transform: scale(1.1) rotate(5deg);
-    /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); */
+    
   }
   
-  /* Optional decorative elements */
+  
   .main-image-wrapper::before {
     content: '';
     position: absolute;
@@ -73,4 +73,23 @@
     background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 30%);
     z-index: 1;
     border-radius: 8px;
+  }
+
+  
+
+  .image-composition button {
+    background: rgba(30, 30, 30, 0.9); 
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  
+  .image-composition button:hover {
+    background: rgba(60, 60, 60, 0.9);
+    border-color: rgba(206, 11, 11, 0.3); 
   }

@@ -1,46 +1,56 @@
+/* Main Form Container */
 .topics-preference-form {
-  width: 80vw;
-  /* margin: 2rem 10vw; */
-  padding: 1rem;
-  background: rgba(40, 40, 40, 0.7);
+  width: 60vw; 
+  margin: 2rem 10% ; 
+  padding: 2rem;
+  background: rgba(40, 40, 40, 0.85);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-height: 80vh;
-  overflow-y: auto;
-  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box; 
 }
 
-
+/* Table Header with Button */
 .form-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.topics-preference-form h2 {
-  color: #ffffff;
-  margin: 0; /* Remove previous margin */
-  font-size: 1.8rem;
-  text-align: left; /* Changed from center */
+  justify-content: space-between; /* Pushes items to opposite sides */
+  align-items: center; /* Vertically centers both items */
+  width: 100%; /* Takes full width */
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 2px solid rgba(206, 11, 11, 0.7);
-  padding-bottom: 0.75rem;
-  width: fit-content;
+}
+
+/* Heading Style */
+.form-header h2 {
+  color: #ff6b6b; /* Coral color */
+  margin: 0; /* Remove default margins */
+  font-size: 1.8rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-weight: 600;
+  white-space: nowrap; /* Prevents text wrapping */
 }
 
-
+/* Button Style */
+.submit-btn {
+  background: #ce0b0b;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap; /* Prevents button text wrapping */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
 
 .topics-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
 }
-
 
 .topic-item {
   background: rgba(60, 60, 60, 0.9);
@@ -54,40 +64,30 @@
   transform: translateY(-2px);
 }
 
-.topic-title {
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 500;
-  flex-grow: 1;
-  text-align: center;
-  justify-content: center;
+/* Checkbox and Label */
+.topic-label {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  min-height: 50px;
 }
 
-
 .topic-label input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-right: 12px;
   accent-color: #ce0b0b;
   cursor: pointer;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
-
-
-.submit-btn {
-  background: #ce0b0b;
-  color: white;
-  border: none;
-  padding: 0.65rem 1.5rem; 
-  border-radius: 6px;
-  font-size: 1rem;
+.topic-title {
+  color: #ffffff;
+  font-size: 0.95rem;
   font-weight: 500;
-  margin: 0; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-  white-space: nowrap; 
+  flex-grow: 1;
 }
+
 
 .submit-btn:hover {
   background: #a50909;
@@ -95,14 +95,23 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
-  .topics-container {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    /* grid-template-columns: repeat(3, 1fr); */
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
   
-  .topics-preference-form h2 {
+  .topics-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .table-header h2 {
     font-size: 1.5rem;
+  }
+  
+  .submit-btn {
+    align-self: flex-end;
   }
 }

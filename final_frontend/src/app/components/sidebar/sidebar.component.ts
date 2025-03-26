@@ -62,7 +62,7 @@ export class SidebarComponent implements OnInit{
           // cat died
           
           this.loginStore.setDied$(true);
-          this.imgToUse = 'assets/images/background.jpg'
+          this.imgToUse = 'assets/images/cat_stage3_5.gif'
 
           let toSerenity = confirm('That is too much. Go calm yourself down...')
 

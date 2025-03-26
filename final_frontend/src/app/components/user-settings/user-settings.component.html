@@ -1,11 +1,12 @@
 
 
   <div class="topics-preference-form">
+    <form [formGroup]="form" (submit)="processForm()">
     <div class="form-header">
       <h2>Add Topics of Interest</h2>
       <button type="submit" class="submit-btn">Update Preferences</button>
     </div>
-    <form [formGroup]="form" (submit)="processForm()">
+    
       <div class="topics-container">
         <div *ngFor="let topic of this.topicList" class="topic-item">
           <label class="topic-label">

@@ -69,6 +69,7 @@ public class UserService {
     // method to run every hour to update user activity
 
     @Scheduled(fixedRate = 3600000) // <-- schedule to run every hour to sync redis to sql 
+    // @Scheduled(fixedRate = 300000) // <--- 5 min for demo
     public void syncRedisUserActivityToSql() {
         Map<Object, Object> activities = redisRepo.getDateTime();
         // redisTemplate.opsForHash().entries("user_scores");
@@ -89,14 +90,17 @@ public class UserService {
     private SendEmailService emailService;
 
     @Scheduled(fixedRate = 86400000) // <-- schedule to run every 24hours to remind users to doomscroll
-    public void getListOfInactiveUsers() {
+    // @Scheduled(fixedRate = 300000)
+    public void sendReminderToInactiveUsers() {
 
         List<String> inactiveEmails = userSqlRepo.getEmailsOfInactiveUsers();
 
         inactiveEmails.forEach(x -> {
             sendReminderEmail(x);
+            System.out.println("email sent: " + x);
             try {
                 sendTelegramReminder(x);
+                System.out.println("telegram sent");
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

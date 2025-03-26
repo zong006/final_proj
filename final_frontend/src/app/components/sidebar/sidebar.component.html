@@ -1,14 +1,5 @@
-
-<img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 200px; height: auto;">
+<img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 175px; height: auto;">
 <br>
-
-<!-- <div *ngIf="loggedIn | async">
-  <div *ngIf="qrCodeUrl">
-    <h4>Scan the QR code below to subscribe on Telegram</h4>
-    <img [src]="qrCodeUrl" alt="Scan QR to join Telegram" width="150px" height="150px"/>
-  </div>
-  <p *ngIf="!qrCodeUrl">Loading QR Code...</p>
-</div> -->
 
 <div *ngIf="loggedIn | async" class="qr-container">
   <div *ngIf="qrCodeUrl" class="qr-card">
@@ -24,12 +15,43 @@
 </div>
 
 <br>
-<div *ngIf="died | async">
-  <!-- some image to use , maybe pixel cat-->
-  <img [src]="imgToUse" alt="Doom Cat Blinking" style="width: 100; height: 100px;">
+<!-- <div *ngIf="died | async">
+  
+  <img src="assets/images/hello_cat.gif" alt="Doom Cat Blinking" style="width: 100; height: 100px;">
   <button (click)="toCalm('trees')" >Trees</button>
   <button (click)="toCalm('ocean')">Ocean</button>
 
+</div> -->
+
+<div *ngIf="died | async" class="calm-section">
+  <div class="calm-prompt">
+    <img src="assets/images/hello_cat.gif" alt="Doom Cat Blinking" class="calm-cat">
+    <p class="calm-message">Take a calming break...</p>
+  </div>
+  <div class="calm-buttons">
+    <button (click)="toCalm('trees')" class="calm-button">🌲 Forest Walk</button>
+    <button (click)="toCalm('ocean')" class="calm-button">🌊 Ocean Waves</button>
+  </div>
 </div>
   
-
+<!-- 
+<div class="sidebar-content">
+  <div class="cat-container">
+    <img [src]="imgToUse" class="cat-image" alt="Mood indicator cat">
+    <button class="calm-button" (click)="toCalm('breathing')">Calm Breathing</button>
+    <button class="calm-button" (click)="toCalm('music')">Relaxing Music</button>
+  </div>
+  
+  <div *ngIf="loggedIn | async" class="qr-container">
+    <div *ngIf="qrCodeUrl" class="qr-card">
+      <h4 class="qr-title">Scan the QR code below to subscribe on Telegram</h4>
+      <div class="qr-code-wrapper">
+        <img [src]="qrCodeUrl" alt="Telegram QR Code" class="qr-image"/>
+        <div class="qr-hover-effect"></div>
+      </div> 
+    </div>
+    <p *ngIf="!qrCodeUrl" >
+      Generating QR Code...
+    </p>
+  </div>
+</div> -->

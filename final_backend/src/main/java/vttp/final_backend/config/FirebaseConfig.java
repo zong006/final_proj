@@ -29,9 +29,9 @@ public class FirebaseConfig {
         FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(inputStream)).build();
         FirebaseApp.initializeApp(options);
 
-        // FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
-        // FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(fis)).build();
-        // FirebaseApp.initializeApp(options);
+    //     FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
+    //     FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(fis)).build();
+    //     FirebaseApp.initializeApp(options);
     }
 
 }

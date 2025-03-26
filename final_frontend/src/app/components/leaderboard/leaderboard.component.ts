@@ -59,4 +59,12 @@ export class LeaderboardComponent implements OnInit{
   }
   doomScore !: Observable<number>
   scores : Array<[string, number]> = []
+
+  mask(username: string): string {
+    if (username === this.user.username) {
+      return this.user.displayName;  
+    } else {
+      return username.substring(0, 2) + '***';  
+    }
+  }
 }

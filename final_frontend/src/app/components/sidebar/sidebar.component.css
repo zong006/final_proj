@@ -1,15 +1,15 @@
-/* QR Container */
+
 .qr-container {
-    margin: 2rem 0;
-    padding: 1.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
     background: rgba(40, 40, 40, 0.6);
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid rgba(80, 80, 80, 0.3);
     backdrop-filter: blur(5px);
-    max-width: 300px;
+    max-width: 220px;
   }
   
-  /* Card styling */
+  
   .qr-card {
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
     gap: 1rem;
   }
   
-  /* Title */
+  
   .qr-title {
     color: rgba(220, 220, 220, 0.95);
     font-size: 1.1rem;
@@ -27,7 +27,7 @@
     line-height: 1.4;
   }
   
-  /* QR Code Image Container */
+  
   .qr-code-wrapper {
     position: relative;
     padding: 12px;
@@ -41,7 +41,7 @@
     transform: scale(1.03);
   }
   
-  /* QR Image */
+  
   .qr-image {
     width: 150px;
     height: 150px;
@@ -49,7 +49,7 @@
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   }
   
-  /* Hover effect */
+  
   .qr-hover-effect {
     position: absolute;
     top: 0;
@@ -61,3 +61,80 @@
     pointer-events: none;
   }
   
+
+
+  
+.calm-section {
+  background: rgba(30, 30, 30, 0.9);
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin: -1.0rem 0;
+  border: 1px solid rgba(206, 11, 11, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  top: -20px; 
+  animation: pulseAttention 1s infinite;
+}
+
+@keyframes pulseAttention {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(206, 11, 11, 0.7);
+    border-color: rgba(206, 11, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(206, 11, 11, 0.7);
+    border-color: rgba(206, 11, 11, 0.7);
+  }
+}
+
+
+.calm-prompt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.calm-cat {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.calm-message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+
+.calm-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.calm-button {
+  background: rgba(40, 40, 40, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(206, 11, 11, 0.3);
+}
+
+.calm-button:hover {
+  background: rgba(60, 60, 60, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
