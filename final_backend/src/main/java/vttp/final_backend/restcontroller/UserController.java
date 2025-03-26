@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
 
 import vttp.final_backend.model.User;
+import vttp.final_backend.service.SendEmailService;
 import vttp.final_backend.service.UserService;
 
 @RestController
@@ -63,6 +65,14 @@ public class UserController {
         Map<String, String> response = new HashMap<>();
         response.put(id, Long.toString(userService.updateUserPref(user)));
         return ResponseEntity.ok().body(response);
+    }
+
+    @Autowired
+    private SendEmailService emailService;
+    @GetMapping("/send-email")
+    public String sendEmail() {
+        emailService.sendEmail("recipient@example.com", "Test Subject", "This is a test email.");
+        return "Email sent successfully!";
     }
 
 }

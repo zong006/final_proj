@@ -1,8 +1,10 @@
 package vttp.final_backend.config;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 import javax.annotation.PostConstruct;
 
@@ -15,13 +17,20 @@ import com.google.firebase.FirebaseOptions;
 @Configuration
 public class FirebaseConfig {
     
+
     @PostConstruct
     public void initializeSDK() throws IOException{
         String workingDir = System.getProperty("user.dir");
         System.out.println(">>>> workingdir: " + workingDir);
-        FileInputStream fis = new FileInputStream("/app/config/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
+        // FileInputStream fis = new FileInputStream("/app/config/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
+
+        String firebaseCredentialsJson = System.getenv("FIREBASE_JSON");
+
+        // If needed, you can convert this string into an InputStream for Firebase initialization
+        InputStream inputStream = new ByteArrayInputStream(firebaseCredentialsJson.getBytes(StandardCharsets.UTF_8));
+
         // FileInputStream fis = new FileInputStream("./src/main/resources/vttp-final-proj-firebase-adminsdk-fbsvc-6c1004315d.json");
-        FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(fis)).build();
+        FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.fromStream(inputStream)).build();
         FirebaseApp.initializeApp(options);
     }
 
