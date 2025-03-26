@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { LoginStore } from '../../store/LoginStore';
 import { DashboardService } from '../../service/dashboard/dashboard.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +13,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class SidebarComponent implements OnInit{
   ngOnInit(): void {
     this.setImage();
-
+    this.loggedIn = this.loginStore.loggedIn$
     this.loginStore.user$.subscribe(
       (u) => {
         console.info('>>>sidebar: ', u)
@@ -34,6 +35,7 @@ export class SidebarComponent implements OnInit{
 
   imgToUse = '';
   delta = this.loginStore.delta$;
+  loggedIn !: Observable<boolean>
 
   setImage(){
     this.loginStore.delta$.subscribe(

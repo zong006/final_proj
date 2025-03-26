@@ -4,9 +4,12 @@
 <p>Score</p>
 <p>{{delta | async}}</p>
 <br>
-<div *ngIf="qrCodeUrl">
+<div *ngIf="loggedIn | async">
+  <div *ngIf="qrCodeUrl">
     <img [src]="qrCodeUrl" alt="Scan QR to join Telegram" />
   </div>
   <p *ngIf="!qrCodeUrl">Loading QR Code...</p>
 
+</div>
+  
 

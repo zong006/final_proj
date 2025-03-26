@@ -26,7 +26,8 @@ export class LeaderboardComponent implements OnInit{
         let leaderboard = new Map(Object.entries(data));
 
         this.scores = Array.from(leaderboard.entries())
-                            .sort((a, b) => b[1] - a[1]);
+                            .sort((a, b) => b[1] - a[1])
+                            .slice(0, 15);
 
         this.scores.forEach(([user, score], index) => {
           // console.info('>>> username: ', this.user.username, user)

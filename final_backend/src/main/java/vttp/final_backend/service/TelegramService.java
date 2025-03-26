@@ -73,11 +73,13 @@ public class TelegramService {
                 sendMessage(chatIdInt, " Come back and continue doomscrolling when you feel better! \\uD83D\\uDE0A");
             }   
             else { // <--- also handle the case where user enters netiher of the choices. for some reason..
-                if (text.equals("/more")){
-                    System.out.println("more");
+                
+                
+                if (!text.equals("/more") && !text.equals("/begin")){
+                    sendMessage(chatIdInt, "Unrecognized command \\uD83D\\uDE44 ");
                 }
                 else if (text.equals("/begin")){
-                    System.out.println("begin");
+                    // System.out.println("begin");
                     redisRepo.resetPage(chatId);
                     page = "1";
                 }
@@ -90,7 +92,7 @@ public class TelegramService {
                 redisRepo.updateCurrentUseTime(email);
 
                 redisRepo.incrementPage(chatId);
-                System.out.println("after increment: " + page);
+                // System.out.println("after increment: " + page);
             }  
         }
     }

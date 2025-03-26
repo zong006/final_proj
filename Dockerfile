@@ -40,6 +40,7 @@ FROM openjdk:23
 WORKDIR /app
 
 COPY --from=javabuild /final_backend/target/*.jar app.jar
+COPY final_backend/src/main/resources/*.json /app/config/
 
 ENV PORT=8080
 
