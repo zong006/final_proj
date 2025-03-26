@@ -95,3 +95,20 @@ td:first-child {
 td:nth-child(3) {
     font-weight: 500;
 }
+
+
+tr.highlight-user {
+    background-color: rgba(206, 11, 11, 0.15) !important;
+    border-left: 3px solid rgba(206, 11, 11, 0.7);
+    font-weight: 500;
+  }
+  
+  
+  tr.highlight-user {
+    animation: pulseHighlight 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulseHighlight {
+    0%, 100% { background-color: rgba(206, 11, 11, 0.15); }
+    50% { background-color: rgba(206, 11, 11, 0.25); }
+  }

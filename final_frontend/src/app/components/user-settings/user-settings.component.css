@@ -1,4 +1,4 @@
-/* Main Form Container */
+
 .topics-preference-form {
   width: 60vw; 
   margin: 2rem 10% ; 
@@ -9,29 +9,29 @@
   box-sizing: border-box; 
 }
 
-/* Table Header with Button */
+
 .form-header {
   display: flex;
-  justify-content: space-between; /* Pushes items to opposite sides */
-  align-items: center; /* Vertically centers both items */
-  width: 100%; /* Takes full width */
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid rgba(206, 11, 11, 0.7);
 }
 
-/* Heading Style */
+
 .form-header h2 {
-  color: #ff6b6b; /* Coral color */
-  margin: 0; /* Remove default margins */
+  color: #ff6b6b; 
+  margin: 0; 
   font-size: 1.8rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-weight: 600;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap; 
 }
 
-/* Button Style */
+
 .submit-btn {
   background: #ce0b0b;
   color: white;
@@ -41,7 +41,7 @@
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
-  white-space: nowrap; /* Prevents button text wrapping */
+  white-space: nowrap;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
 }
@@ -64,7 +64,7 @@
   transform: translateY(-2px);
 }
 
-/* Checkbox and Label */
+
 .topic-label {
   display: flex;
   align-items: center;
@@ -95,7 +95,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .table-header {
     flex-direction: column;
