@@ -1,0 +1,22 @@
+.caption-container {
+    position: fixed;
+    right: 0;
+    top: 60px; 
+    width: 20%;
+    height: calc(100vh - 60px);
+    z-index: 5; 
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .caption-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 1rem;
+    filter: grayscale(30%) brightness(0.8);
+    transition: all 0.3s ease;
+  }
