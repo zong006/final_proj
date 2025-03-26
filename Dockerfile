@@ -84,7 +84,9 @@
     COPY final_backend/mvnw.cmd .
     COPY final_backend/src src
     COPY final_backend/.mvn .mvn 
-    RUN chmod -R 755 /final_backend/src/main/resources/static
+
+    RUN chmod -R 755 /code_folder/src/main/resources/static
+
 
     RUN mvn package -Dmaven.test.skip=true
     
