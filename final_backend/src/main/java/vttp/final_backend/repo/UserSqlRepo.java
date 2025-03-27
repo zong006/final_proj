@@ -82,7 +82,7 @@ public class UserSqlRepo {
                 select ud.email
                 from user_activity ua
                 inner join user_details ud on ua.uid = ud.uid
-                where ua.current_login < NOW() - INTERVAL 5 MINUTE
+                where ua.current_login < NOW() - INTERVAL 5 DAY
                 ;
                 """;
 
